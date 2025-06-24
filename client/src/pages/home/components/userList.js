@@ -128,10 +128,9 @@ function UsersList({ searchKey, socket, onlineUser }) {
     if (searchKey === "") {
       return allChats;
     } else {
-      return allUsers.filter(user => {
+      return allUsers.filter(user => 
         user.firstName?.toLowerCase().includes(searchKey?.toLowerCase()) ||
         user.lastName?.toLowerCase().includes(searchKey?.toLowerCase())
-      }
       );
     }
   };
@@ -140,7 +139,7 @@ function UsersList({ searchKey, socket, onlineUser }) {
         getData()
         .map(obj => {
             let user = obj;
-            if(obj.members){
+            if(obj.members && currentUser && currentUser._id){
                 user = obj.members.find(mem => mem._id !== currentUser._id);
             }
             
