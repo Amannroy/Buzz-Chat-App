@@ -10,7 +10,14 @@ import cors from "cors";
 
 // User auth controller routers(Middleware)
 // app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000", // for local dev
+    "https://buzz-chat-app-client.onrender.com" // ✅ for live client
+  ],
+  credentials: true,
+}));
+
 app.use(express.json({ limit: "50mb" }));
 
 // Server and Socket.io setup
@@ -18,10 +25,15 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000", // keep this for local testing
+      "https://buzz-chat-app-client.onrender.com" // ✅ live client URL
+    ],
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
+
 
 // Routes
 app.use("/api/auth", authRouter);
