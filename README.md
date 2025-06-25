@@ -88,7 +88,10 @@ SECRET_KEY=your_jwt_secret
 🔒
 Make sure .env is listed in .gitignore to keep credentials private.
 
+<details>
+<summary>📁 Folder Structure (Click to expand)</summary>
 
+```
 Buzz-Chat-App/
 ├── client/               # React frontend
 │   ├── components/       # Reusable UI parts
@@ -100,6 +103,10 @@ Buzz-Chat-App/
 │   ├── models/           # Mongoose schemas
 │   ├── app.js            # Main app + WebSocket logic
 │   └── server.js         # Entry point for backend
+```
+
+</details>
+
 
 
 🧠 Learning Outcomes
